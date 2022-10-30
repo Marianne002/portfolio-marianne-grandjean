@@ -1,0 +1,373 @@
+*, *::after,*::before{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+/* Navbar */
+.navbar-nav{
+    margin-left: auto;
+}
+
+/* Nav expand */
+@media (max-width: 768px) {
+    .offcanvas-collapse {
+        position: fixed;
+        top: 56px; /* Height of navbar */
+        bottom: 0;
+        left: 100%;
+        width: 100%;
+        padding-right: 1rem;
+        padding-left: 1rem;
+        overflow-y: auto;
+        visibility: hidden;
+        background-color: #343a40;
+        transition: transform .3s ease-in-out, visibility .3s ease-in-out;
+    }
+    .offcanvas-collapse.open {
+        visibility: visible;
+        transform: translateX(-100%);
+    }
+}
+
+/* Main */
+#main {
+    padding-top: 56px;
+    font-family: "Open Sans", sans-serif;
+    background: #04040461 url("../img/wallpaper.jpg") top right no-repeat;
+    background-size: cover;
+    color: #fff;
+}
+@media (min-width: 1024px) {
+    #main::before {
+      background-attachment: fixed;
+    }
+}
+
+/* Section general*/
+h1, 
+h2
+,p{
+    font-family: 'Exo 2', sans-serif;
+}
+section {
+    width: 100%;
+    top: 140px;
+    bottom: 100%;
+    z-index: 299999;
+    background: rgb(0 0 0 / 72%);
+}
+
+/* Home */
+#home,#hero{
+    height: calc(100vh - 56px);
+}
+#home h1 {
+    margin: 0 0 10px 0;
+    font-size: 64px;
+}
+#home .btn-scroll {
+    color: rgba(255, 255, 255, 0.6);
+    animation: up-down 1s ease-in-out infinite alternate-reverse both;
+}
+#home .btn-scroll:hover {
+    color: #50a5aa;
+    transition: 1s;
+}
+  
+/* btn-scroll animation */
+@-webkit-keyframes up-down {
+    0% {
+    transform: translateY(5px);
+    }
+    100% {
+    transform: translateY(-5px);
+    }
+}
+@keyframes up-down {
+    0% {
+    transform: translateY(5px);
+    }
+    100% {
+    transform: translateY(-5px);
+    }
+}
+
+/* About */
+.btn-resume {
+    border: 5em;
+    cursor: pointer;
+    outline: none;
+    font-size: 16px;
+    -webkit-transform: translate(0);
+    transform: translate(0);
+    background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+    padding: 0.7em 2em;
+    border-radius: 65px;
+    box-shadow: 1px 1px 10px rgba(255, 255, 255, 0.438);
+    -webkit-transition: box-shadow 0.25s;
+    transition: box-shadow 0.25s;
+    color: white;
+}
+.btn-resume .text {
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-image: linear-gradient(45deg, #4568dc, #b06ab3);
+}
+.btn-resume:hover {
+    background-image: linear-gradient(-45deg, #4568dc, #b06ab3);
+    box-shadow: 0 12px 24px rgba(128, 128, 128, 0);
+}
+
+
+/* Work */
+.portfolio__container{
+    max-width: 1140px;
+    margin: auto;
+    padding: 30px;
+}
+.portfolio-title{
+    margin-bottom: 40px;
+}
+.portfolio-title h1{
+    display: inline-block;
+    font-size: 35px;
+    font-weight: 700;
+    margin: 0 0 5px;
+}
+/* portfolio: filters-buttons */
+.portfolio .filter-buttons ul li{
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 16px 10px 16px;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    margin: 0 3px 10px 3px;
+    transition: all 0.3s ease-in-out;
+    border-radius: 4px;
+}
+.portfolio .filter-buttons ul li.active,
+.portfolio .filter-buttons ul li:hover{
+    background:#50a5aa;
+}
+.portfolio #portfolio-gallery .portfolio-item{
+    padding: 10px;
+} 
+
+
+/* portfolio-wrap */
+.portfolio .portfolio-wrap {
+    transition: 0.3s;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(0, 0, 0, 0.6);
+}
+.portfolio .portfolio-wrap::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    left: 30px;
+    right: 30px;
+    top: 30px;
+    bottom: 30px;
+    transition: all ease-in-out 0.3s;
+    z-index: 2;
+    opacity: 0;
+}
+/* portfolio-info  */
+.portfolio .portfolio-wrap .portfolio-info {
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 3;
+    transition: all ease-in-out 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+}
+.portfolio .portfolio-wrap .portfolio-info::before,
+.portfolio .portfolio-wrap .portfolio-info::after {
+    display: block;
+    content: "";
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    transition: all 0.5s ease 0s;
+    z-index: 9994;
+}
+.portfolio .portfolio-wrap .portfolio-info::before {
+    top: 35px;
+    left: 35px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+}
+.portfolio .portfolio-wrap .portfolio-info::after {
+    bottom: 35px;
+    right: 35px;
+    border-bottom: 3px solid #fff;
+    border-right: 3px solid #fff;
+}
+.portfolio .portfolio-wrap .portfolio-info h4 {
+    font-size: 20px;
+    font-weight: 600;
+}
+.portfolio .portfolio-wrap .portfolio-info p {
+    font-size: 14px;
+}
+.portfolio .portfolio-wrap .portfolio-links a {
+    color: #fff;
+    margin: 0 2px;
+    font-size: 28px;
+    display: inline-block;
+    transition: 0.3s;
+}
+.portfolio .portfolio-wrap .portfolio-links a:hover {
+    color: #6bd9df;
+}
+.portfolio .portfolio-wrap:hover::before {
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 1;
+}
+.portfolio .portfolio-wrap:hover .portfolio-info {
+    opacity: 1;
+}
+.portfolio .portfolio-wrap:hover .portfolio-info::before {
+    top: 15px;
+    left: 15px;
+}
+.portfolio .portfolio-wrap:hover .portfolio-info::after {
+    bottom: 15px;
+    right: 15px;
+}
+  
+
+/*--------------------------------------------------------------
+# Portfolio Details
+--------------------------------------------------------------*/
+.portfolio-details {
+    padding-top: 40px;
+}
+.portfolio-details .portfolio-info {
+    padding: 30px;
+    box-shadow: 0px 0 30px rgba(75, 74, 74, 0.08);
+}
+.portfolio-details .portfolio-info h3 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+}
+.portfolio-details .portfolio-info ul {
+    list-style: none;
+    padding: 0;
+    font-size: 15px;
+}
+.portfolio-details .portfolio-info ul li+li {
+    margin-top: 10px;
+}
+.portfolio-details .portfolio-description {
+    padding-top: 30px;
+}
+.portfolio-details .portfolio-description h2 {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+.portfolio-details .portfolio-description p {
+    padding: 0;
+}
+
+/*Contact */
+#contact, footer.inner{
+    background: linear-gradient(0deg, rgb(115 99 181)0%, rgb(0 0 0 / 72%)100%);
+}
+/* Contact form */
+.contact .php-email-form {
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.08);
+}
+.contact .php-email-form input {
+    padding: 10px 15px;
+}
+.contact .php-email-form textarea {
+    padding: 12px 15px;
+}
+.contact .php-email-form input,
+.contact .php-email-form textarea {
+  border-radius: 0;
+  box-shadow: none;
+  font-size: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 0;
+  transition: 0.3s;
+  color: #fff;
+}
+.contact .php-email-form input:focus,
+.contact .php-email-form textarea:focus {
+  background-color: rgba(255, 255, 255, 0.11);
+}
+.contact .php-email-form input::placeholder,
+.contact .php-email-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  opacity: 1;
+}
+.contact .php-email-form input[type=submit] {
+    background:  #6bd9df;
+    border: 0;
+    padding: 10px 30px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 4px;
+}
+.contact .php-email-form input[type=submit]:hover {
+    background: #50a5aa;
+}
+
+
+/* Footer */
+footer{
+    background :rgb(115 99 181);
+}
+
+/* Mention legales + Reseaux sociaux */
+.collapse__button,.network a {
+    color: #fff;
+    text-decoration: none;
+}
+.navbar-nav a:hover,.collapse__button:hover,.network a:hover {
+    color: #50a5aa;
+    transition: 1s;
+}
+.collapse__container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+/* Mentions legales : card-body */
+.card-body{
+    background: rgba(255, 255, 255, 0.80);
+}
+
+/* Media queries */
+/* Mobile */
+@media screen and (max-width: 767px){
+    h1,h2,h3,h4,p{
+        font-size: medium !important;
+    }
+}
